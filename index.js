@@ -7,12 +7,6 @@ bot.commands = new Discord.Collection()
 fs.readdir("./commands/", (err, files) => {
     if(err) console.log(err);
 
-    let jsfile = files.filter(f => f.split(".").pop() === "js")
-    if(jsfile <= 0){
-        console.log("Commands not found.");
-        return;
-    };
-
     jsfile.forEach((f, i) =>{
         let props = require(`./commands/${f}`);
         console.log(`${f} loaded!`);
